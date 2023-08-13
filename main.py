@@ -28,5 +28,21 @@ def say_name(name = 'noname'):
 def say_Amin1():
     return 'Hello Aminçik!'
 
+@app.route('/test/')        # """ многострочгая"""
+def say_test():
+    html = """
+    <h1>Hello Ra</h1>
+    <br>
+    <br>
+    <p>Text</p>
+    """
+    return html
+
+@app.route('/test1/')           # 'однострочная запись'
+def say_test1():
+    name = 'Ra'
+    html = f'<h1>Hello {name}</h1><br><br><p>Text</p>'
+    return html
+
 if __name__ == '__main__':
     app.run()
