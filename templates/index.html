@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body>
-        <h1>Hello {name}</h1><br><br><p>Text</p>
-        
-    </body>
-</html>
+{% extends 'base.html' %}
+    
+{% block title %} {{ title1 }} {% endblock %}
+
+{% block content %}
+
+    <h1>Hello {{name}}</h1>
+    <a href = "/Amin/">TEST</a>
+    {% if number == 1  %}
+    <p>Это условие if</p>
+    {% elif number >= 1  %}
+    <p>Это условие elif</p>
+    {% else %}
+    <p>Это условие else</p>
+    {% endif %}
+    <br>
+    {% for i in temp_list %}
+    <p>{{ i }}</p>
+    {% endfor %}
+
+{% endblock %}        
+

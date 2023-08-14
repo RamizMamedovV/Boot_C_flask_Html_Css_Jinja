@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from random import randint
 
 app = Flask(__name__)
 
@@ -9,7 +10,20 @@ app = Flask(__name__)
 
 @app.route('/')         # создал после from flask import render_template и index.html
 def say_hello():
-    return render_template('index.html')
+    # name_slovarya создается, если нужно передать несколько аргументов
+    name_slovarya = {
+                        # название в шапке страницы в index.html в двойных {{}}
+        'title1' : 'Главная страница',  
+        'name': 'Ramiz',
+        # для условия if в {% начало if %} и  {% конец endif  %}
+        'number' : randint(0, 3),
+        # для цикла {% for i in temp_list %}
+        'temp_list': ['Ra', 'Kama', 'Amina', 'Amin'],
+    }
+                # в html должны быть в двойн. {{name}}
+    # return render_template('index.html', name = 'Tom') 
+                # в html должны быть в двойн. {{name}}
+    return render_template('index.html', **name_slovarya) 
 
 @app.route('/test_html/')
 def say_test_html():
