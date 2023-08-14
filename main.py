@@ -1,10 +1,19 @@
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+# @app.route('/')       # закоментил после from flask import render_template 
+# def say_hello():
+#     return 'Hello!'
+
+@app.route('/')         # создал после from flask import render_template и index.html
 def say_hello():
-    return 'Hello!'
+    return render_template('index.html')
+
+@app.route('/test_html/')
+def say_test_html():
+    return render_template('name.html')
 
 @app.route('/bye/')
 def say_bye():
